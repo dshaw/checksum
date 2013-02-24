@@ -1,0 +1,39 @@
+{
+  "name": "checksum",
+  "version": "0.0.2",
+  "description": "Checksum utility for node",
+  "keywords": [
+    "checksum",
+    "shasum",
+    "hash",
+    "sha",
+    "sha1",
+    "md5"
+  ],
+  "author": "Daniel D. Shaw <dshaw@dshaw.com> (http://dshaw.com)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dshaw/checksum.git"
+  },
+  "bugs": {
+    "url": "http://github.com/dshaw/checksum/issues"
+  },
+  "license": "MIT",
+  "main": "checksum",
+  "bin": {
+    "checksum": "bin/checksum-cli.js"
+  },
+  "scripts": {
+    "test": "tap test/*.test.js"
+  },
+  "directories": {
+    "bin": "bin",
+    "test": "test"
+  },
+  "dependencies": {
+    "optimist": "~0.3.5"
+  },
+  "devDependencies": {
+    "tap": "~0.4.x"
+  }
+}
