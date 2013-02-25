@@ -1,6 +1,6 @@
 {
   "name": "checksum",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Checksum utility for node",
   "keywords": [
     "checksum",
