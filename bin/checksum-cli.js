@@ -84,7 +84,6 @@ function nextFile (filename, count) {
       })
 
       fileStream.on('end', function () {
-        hash.digest('hex')
         process.stdout.write(hash.digest('hex') + '  ' + filename + '\n')
         if (++count !== fileCount) {
           nextFile(options._[count], count)
