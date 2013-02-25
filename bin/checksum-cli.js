@@ -12,7 +12,6 @@
 
 var crypto = require('crypto')
   , fs = require('fs')
-  , path = require('path')
   , optimist = require('optimist')
 
 /**
