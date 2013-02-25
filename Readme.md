@@ -15,6 +15,12 @@ Checksum utility for node.
       console.log('yay')
     }
 
+    checksum.file('dshaw.txt', function (err, sum) {
+       if (cs === '9b8cebc0421241d087f6ab7e815285af803de7e7') {
+         console.log('yay yay')
+       }
+    })
+
 ## Checksum cli tool
 
     npm install -g checksum
