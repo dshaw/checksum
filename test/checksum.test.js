@@ -11,7 +11,7 @@ test('checksum', function (t) {
 })
 
 test('checksum.file', function (t) {
-  t.plan(2)
+  t.plan(3)
   checksum.file('./fixtures/dshaw.txt', function (err, sum) {
     t.equal(sum, '9b8cebc0421241d087f6ab7e815285af803de7e7', 'text file checksum')
   })
