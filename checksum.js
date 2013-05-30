@@ -57,8 +57,9 @@ function checksumFile (filename, options, callback) {
   if (!options.algorithm) options.algorithm = 'sha1'
 
   fs.stat(filename, function (err, stat) {
+    if (!err && !stat.isFile()) err = new Error('Not a file')
     if (err) return callback(err)
-    if (!stat.isFile()) err = new Error('Not a file')
+    
     
     var hash = crypto.createHash(options.algorithm)
       , fileStream = fs.createReadStream(filename)
