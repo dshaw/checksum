@@ -1,4 +1,10 @@
 
+0.1.1 / 2013-06-04
+==================
+
+  * Minor cleanup in cli.
+  * Improve handling when file doesn't exist. [@NotMyself]
+
 0.1.0 / 2013-02-25
 ==================
 
