@@ -33,8 +33,7 @@ var options = optimist
 
 if (fileCount) { // handle files
 
-  var count = 0
-  nextFile(options._[count], count)
+  nextFile(options._[0], 0)
 
 } else { // handle stdin
 
