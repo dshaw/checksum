@@ -4,7 +4,7 @@ Checksum utility for node.
 
 ## Status
 
-![Travis Build Status](https://secure.travis-ci.org/dshaw/checksum.png)
+[![build status](https://secure.travis-ci.org/dshaw/checksum.png)](http://travis-ci.org/dshaw/checksum)
 
 ## Install
 
