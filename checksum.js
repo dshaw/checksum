@@ -29,13 +29,15 @@ function checksum (value, options) {
 
   var hash = crypto.createHash(options.algorithm)
 
-  if (!hash.write) { // pre-streaming crypto API in node < v0.9
-
+  // http://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm
+  if (!hash.write || hash.digest) { 
+    // pre-streaming crypto API in node < v0.9
+    // or in node > v.10.* 
     hash.update(value)
     return hash.digest('hex')
 
-  } else { // v0.9+ streaming crypto
-
+  } else {
+    // v0.9+ streaming crypto
     hash.setEncoding('hex')
     hash.end(value)
     return hash.read()
