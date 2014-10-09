@@ -29,16 +29,17 @@ function checksum (value, options) {
 
   var hash = crypto.createHash(options.algorithm)
 
-  if (!hash.write) { // pre-streaming crypto API in node < v0.9
-
+  // http://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm
+  if (!hash.write) { 
+    // pre-streaming crypto API in node < v0.9
     hash.update(value)
     return hash.digest('hex')
 
-  } else { // v0.9+ streaming crypto
-
-    hash.setEncoding('hex')
-    hash.end(value)
-    return hash.read()
+  } else {
+    // v0.9+ streaming crypto
+    // http://nodejs.org/api/stream.html#stream_writable_write_chunk_encoding_callback
+    hash.write(value)
+    return hash.digest('hex')
 
   }
 }
