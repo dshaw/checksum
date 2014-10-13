@@ -18,8 +18,8 @@ test('checksum.file', function (t) {
   checksum.file('./fixtures/1px.gif', function (err, sum) {
     t.equal(sum, 'c65ed837d46f9122ab047c33d2f9e947786187b4', 'binary file checksum')
   })
-  checksum.file('./idontexist.text', function (err, sum){
-    t.equal(err.errno, 34, 'the stat error will be passed along')
+  checksum.file('./idontexist.text', function (err, sum) {
+    t.equal(err.code, 'ENOENT', 'the stat error will be passed along')
   })
 })
 
