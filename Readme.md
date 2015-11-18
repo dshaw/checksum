@@ -24,6 +24,12 @@ Checksum utility for node.
          console.log('yay yay')
        }
     })
+    
+    checksum.file('dshaw.txt', { algorithm: 'md5' }, function (err, sum) {
+       if (sum === 'a5ad66d8992ac4842fee8a231afe4fdb') {
+         console.log('yay yay')
+       }
+    })
 
 ## Checksum cli tool
 
@@ -31,7 +37,7 @@ Checksum utility for node.
 
 ### Options
 
-* `-a` `--algorithm`: default `sha1`
+* `-a` `--algorithm`: default `sha1` | `sha256` | `md5`
 * `-v` `--verbose`: default `false`
 
 ### Usage
