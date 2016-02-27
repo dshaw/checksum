@@ -25,6 +25,12 @@ Checksum utility for node.
        }
     })
 
+    checksum.stream(stream, function(err, sum) {
+      if (sum === '9b8cebc0421241d087f6ab7e815285af803de7e7'') {
+        console.log('huzzah')
+      }
+    })
+
 ## Checksum cli tool
 
     npm install -g checksum
