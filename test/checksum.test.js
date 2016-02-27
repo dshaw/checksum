@@ -1,4 +1,5 @@
 var checksum = require('..')
+  , fs = require('fs')
   , tap = require('tap')
   , test = tap.test
 
@@ -23,3 +24,14 @@ test('checksum.file', function (t) {
   })
 })
 
+test('checksum.stream', function (t) {
+  t.plan(2)
+  var fileStream1 = fs.createReadStream('./fixtures/dshaw.txt')
+  checksum.stream(fileStream1, function (err, sum) {
+    t.equal(sum, '9b8cebc0421241d087f6ab7e815285af803de7e7', 'text file stream checksum')
+  })
+  var fileStream2 = fs.createReadStream('./fixtures/1px.gif')
+  checksum.stream(fileStream2, function (err, sum) {
+    t.equal(sum, 'c65ed837d46f9122ab047c33d2f9e947786187b4', 'binary file stream checksum')
+  })
+})
