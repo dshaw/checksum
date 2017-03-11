@@ -23,3 +23,22 @@ test('checksum.file', function (t) {
   })
 })
 
+// Passing encoding
+test('checksum.base64', function (t) {
+  t.equal(checksum('dshaw', { encoding: 'base64' }), 'm4zrwEISQdCH9qt+gVKFr4A95+c=', 'simple value')
+  t.equal(checksum('1234567890~!@#$%^&*()_+', { encoding: 'base64' }), '1VMD0KGUMslonJ6/Uc7lH0U7k70=', 'more chars')
+  t.end()
+})
+
+test('checksum.file.base64', function (t) {
+  t.plan(3)
+  checksum.file('./fixtures/dshaw.txt', { encoding: 'base64' }, function (err, sum) {
+    t.equal(sum, 'm4zrwEISQdCH9qt+gVKFr4A95+c=', 'text file checksum')
+  })
+  checksum.file('./fixtures/1px.gif', { encoding: 'base64' }, function (err, sum) {
+    t.equal(sum, 'xl7YN9RvkSKrBHwz0vnpR3hhh7Q=', 'binary file checksum')
+  })
+  checksum.file('./idontexist.text', { encoding: 'base64' }, function (err, sum) {
+    t.equal(err.code, 'ENOENT', 'the stat error will be passed along')
+  })
+})
