@@ -67,6 +67,10 @@ function checksumFile (filename, options, callback) {
     var hash = crypto.createHash(options.algorithm)
       , fileStream = fs.createReadStream(filename)
 
+    fileStream.on('error', function(err){
+      callback(err);
+    });
+
     if (!hash.write) { // pre-streaming crypto API in node < v0.9
 
       fileStream.on('data', function (data) {
