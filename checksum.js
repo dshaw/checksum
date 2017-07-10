@@ -26,6 +26,7 @@ checksum.file = checksumFile
 function checksum (value, options) {
   options || (options = {})
   if (!options.algorithm) options.algorithm = 'sha1'
+  if (!options.encoding) options.encoding = 'hex'
 
   var hash = crypto.createHash(options.algorithm)
 
@@ -33,13 +34,13 @@ function checksum (value, options) {
   if (!hash.write) { 
     // pre-streaming crypto API in node < v0.9
     hash.update(value)
-    return hash.digest('hex')
+    return hash.digest(options.encoding)
 
   } else {
     // v0.9+ streaming crypto
     // http://nodejs.org/api/stream.html#stream_writable_write_chunk_encoding_callback
     hash.write(value)
-    return hash.digest('hex')
+    return hash.digest(options.encoding)
 
   }
 }
@@ -56,6 +57,7 @@ function checksumFile (filename, options, callback) {
 
   options || (options = {})
   if (!options.algorithm) options.algorithm = 'sha1'
+  if (!options.encoding) options.encoding = 'hex'
 
   fs.stat(filename, function (err, stat) {
     if (!err && !stat.isFile()) err = new Error('Not a file')
@@ -72,12 +74,12 @@ function checksumFile (filename, options, callback) {
       })
 
       fileStream.on('end', function () {
-        callback(null, hash.digest('hex'))
+        callback(null, hash.digest(options.encoding))
       })
 
     } else { // v0.9+ streaming crypto
 
-      hash.setEncoding('hex')
+      hash.setEncoding(options.encoding)
       fileStream.pipe(hash, { end: false })
 
       fileStream.on('end', function () {
