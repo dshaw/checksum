@@ -8,6 +8,7 @@
     "hash",
     "sha",
     "sha1",
+    "sha256",
     "md5"
   ],
   "author": "Daniel D. Shaw <dshaw@dshaw.com> (http://dshaw.com)",

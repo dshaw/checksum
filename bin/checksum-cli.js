@@ -22,7 +22,7 @@ var options = optimist
       .boolean(['verbose'])
       .alias('a', 'algorithm')
       .alias('v', 'verbose')
-      .default('algorithm', 'sha1')
+      .default('algorithm', 'sha256')
       .default('verbose', false)
       .argv
   , fileCount = options._.length

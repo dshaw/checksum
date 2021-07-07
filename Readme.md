@@ -15,12 +15,12 @@ Checksum utility for node.
     var checksum = require('checksum')
       , cs = checksum('dshaw')
 
-    if (cs === '9b8cebc0421241d087f6ab7e815285af803de7e7') {
+    if (cs === '650a94547ad8ff00d5c5e3c8d54e8503d566b8ab0029dc289b5bb4294e39b92a') {
       console.log('yay')
     }
 
     checksum.file('dshaw.txt', function (err, sum) {
-       if (sum === '9b8cebc0421241d087f6ab7e815285af803de7e7') {
+       if (sum === '650a94547ad8ff00d5c5e3c8d54e8503d566b8ab0029dc289b5bb4294e39b92a') {
          console.log('yay yay')
        }
     })
@@ -31,22 +31,22 @@ Checksum utility for node.
 
 ### Options
 
-* `-a` `--algorithm`: default `sha1`
+* `-a` `--algorithm`: default `sha256`
 * `-v` `--verbose`: default `false`
 
 ### Usage
 
     $ echo -n dshaw | checksum
-    > 9b8cebc0421241d087f6ab7e815285af803de7e7
+    > 650a94547ad8ff00d5c5e3c8d54e8503d566b8ab0029dc289b5bb4294e39b92a
 
     $ checksum ./*
-    > c86d703371777a96ef7cdbb6a8fe65afb8e95d94  ./History.md
-    > 6d8afb5a7e0bf476e966a9b741057ba712ba067a  ./Readme.md
-    > 09f5ad81b312fe59619fbfbfd5b3785deb9b0e88  ./checksum.js
-    > 47396881ce59853d53766ad701c13b0a107a8d6c  ./package.json
+    > dac3afc010e743f3e6e1ff063b47faf2862454df1d60e3eef1339817cfed39ad  ./History.md
+    > 54ffa21d49426466813611c248867318add8d023c2834433aee831f3f1f1746b  ./Readme.md
+    > 24a902990485588c18da6c965c6c19031995777593b92d28b23e7c0fa09011dd  ./checksum.js
+    > b5c6c08d3b58b0057fe380b0fad07b6382c32b48280f16fdb4e9939d7f94d5f4  ./package.json
 
     $ checksum -a md5 ./test/*
-    > e54ea1240678c34901b150609e9b1906  ./test/checksum.test.js
+    > 0255f3cb587ea090a6b39b5b864bdc95  ./test/checksum.test.js
 
-    $ checksum -a sha256 ./bin/*
-    > f1e3209ff36988ffb136414d4d582052d901d0f3019c3d133731bcd751761c23  ./bin/checksum-cli.js
+    $ checksum -a sha1 ./bin/*
+    > 7934b7927e562aa7f368430bf421b4a0aff27225  ./bin/checksum-cli.js

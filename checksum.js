@@ -25,7 +25,7 @@ checksum.file = checksumFile
 
 function checksum (value, options) {
   options || (options = {})
-  if (!options.algorithm) options.algorithm = 'sha1'
+  if (!options.algorithm) options.algorithm = 'sha256'
   if (!options.encoding) options.encoding = 'hex'
 
   var hash = crypto.createHash(options.algorithm)
@@ -56,7 +56,7 @@ function checksumFile (filename, options, callback) {
   }
 
   options || (options = {})
-  if (!options.algorithm) options.algorithm = 'sha1'
+  if (!options.algorithm) options.algorithm = 'sha256'
   if (!options.encoding) options.encoding = 'hex'
 
   fs.stat(filename, function (err, stat) {
