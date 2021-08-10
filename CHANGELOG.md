@@ -1,3 +1,9 @@
+1.0.0 / 2021-08-09
+==================
+
+  * Fix for Node.js v0.10
+  * Also test on Node.js v0.11
+  * Use `Error.code` rather than `Error.errno`
 
 0.1.1 / 2013-06-04
 ==================
